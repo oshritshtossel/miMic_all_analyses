@@ -51,10 +51,66 @@ The analyses are presented according to the figures in the manuscript.
    - Note that the  <code style="background-color: lightgrey;">csv</code> for creating this plot is <code style="background-color: lightgrey;">all_corrs.csv</code> in the <code style="background-color: lightgrey;">Fig_1/Results</code> folder.
 
 ### Fig_2 - Validation of miMics' assumptions on analytical models and simulations.
-1. **"fig2_mother_daughter_distributions.py"**
+1. **"fig2_mother_daughter_distributions.py"**-
    - Daughter's distribution (pink) vs. mother's distribution (dark pink) in the regime of (0,0,0). The mother's distribution is noticeably narrower, with approximately half that of the daughter's distribution **(A)**.
 
-2. **"fig2_leaf_confidence_vs_mimic_confidence.py"**
+2. **"fig2_leaf_confidence_vs_mimic_confidence.py"**-
    - Comparison of the leaf confidence with miMic's confidence based on analytical integral calculations over 3 different regimes: regime (0,0,0) **(B)**, regime (0,0,μ) **(C)**, regime (0,μ,α*μ) **(D)**. The lines represent estimated slopes, denoted as S. In D, different colors represent varying levels of connection between the sisters, controlled by α values (0.25, 0.5, 1, 2, 4).
+   - Note that for the creation of:
+      -  **B:** <code style="background-color: lightgrey;">STATE = '000'</code>.
+      -  **C:** <code style="background-color: lightgrey;">STATE = '00mu'</code>.
+      -  **D:** <code style="background-color: lightgrey;">STATE = '0mumu'</code>.
+
+   - Note that the data for this simulation can be created by <code style="background-color: lightgrey;">Simulations/hierarchical_simulations.py</code>.
+
+        
+3. **"fig2_hist_sisters_distribution.py"**-
+   -  Histogram illustrating the distribution of inner sisters-label SCCs across different cohorts. The black line represents the zero line, and the dashed pink line represents the average of the distribution, indicating a right-skewed distribution, with most sisters showing a consistent positive correlation with the label **(E)**.
+
+4. **"fig2_fp_tp_bar_plots_hierarchial_simulations.py"**-
+   - A comparison between the number of samples and the number of FPs for miMic and Mann-Whitney leaf simulations based on the regime of (0, 0, 0) **(F)** and the regime of (0, 0, μ), where μ was set to 1. The lightest pink color represents the Leaf-C model, the middle pink represents the Leaf model, and the darkest pink represents the miMic model.
+   - **H.** Comparison between the number of samples and the number of TPs for miMic and Leaf Mann-Whitney simulations based on the regime of (0, 0, μ). The color coding is similar to the color coding of **F-G**.
+   - Note that the data for this simulation can be created by <code style="background-color: lightgrey;">Simulations/hierarchical_simulations.py</code>.
+
+
+5. **"fig2_surface_pos_neg_hierarchial_simulations.py"**-
+   - **I - J.** Comparison between the FPs **(I)** and TPs **(J)** of the miMic model and the Leaf model in the simulation of the regime (0, 0, μ) over different numbers of samples and different values of μ. The Leaf model shows a higher number of FPs compared to miMic, while miMic's TPs are similar to Leaf's TPs.
+
+   - **K - L.** Comparison between the FPs **(K)** and TPs **(L)** of the miMic model and the Leaf model in the simulation of the regime (0, μ, α*μ) over different numbers of samples and different values of α. The Leaf model exhibits a higher number of FPs compared to miMic, while miMic's TPs are similar to the Leaf's TPs.
+     
+   - Note that for the creation of:
+      - **I:** <code style="background-color: lightgrey;">TASK = 'A'</code>
+      - **J:** <code style="background-color: lightgrey;">TASK = 'B'</code>
+      - **K:** <code style="background-color: lightgrey;">TASK = 'C'</code>
+      - **L:** <code style="background-color: lightgrey;">TASK = 'D'</code>
+
+   - Note that the data for this simulation can be created by <code style="background-color: lightgrey;">Simulations/hierarchical_simulations.py</code>.
+
+6. **"fig2_microbiome_oriented_f1_scores.py"**-
+   - The F1 scores of different differential abundance (DA) methods are depicted across three distinct setups of microbiome-oriented simulations **(M)**.
+   - Note that the data for this simulation can be created by <code style="background-color: lightgrey;">Simulations/microbiome_oriented_simulations.py</code>.
+
+### Fig_3 - Validation of miMic vs. SOTA models on real-world datasets.
+1. **"fig3_plotly_RSP_comparison.py"**-
+   - Comparative analysis of different Differential Analysis (DA) methods as a function of RSP(β) over 16S cohorts **(B)** and Whole Genome Sequencing (WGS) cohorts **(C)**. Each color represents a specific model: orange for DeSeq2 (light without FDR correction and dark with FDR correction, denoted as DeSeq2-C), yellow for LefSe, green for ANCOM (light without FDR correction and dark with FDR correction, referred to as ANCOM-C), blue for LINDA (light without FDR correction and dark with FDR correction, denoted as LINDA-C), brown for ada-ANCOM, and pink for miMic (pink for log SUB-PCA MIPMLP preprocessing and purple for relative mean MIPMLP preprocessing). Each line illustrates the average RSP(β) score across all cohorts (12 16S in **B** and 8 WGS in **C**). The light shadows surrounding each line represent standard errors calculated over 10 simulations of the shuffled models across all cohorts (12 16S in **B** and 8 WGS in **C**).
+
+2. **"fig3_plotly_RSP_taxonomy.py"**-
+   - Comparison of different starting taxonomy levels of the miMic test and their corresponding RSP(β) scores over 16S cohorts **(D)** and WGS cohorts **(E)**. Each taxonomy level is indicated by a different line style (1 for kingdom, 2 for phylum, 3 for class, 4 for order, 5 for family, 6 for genus, and 7 for species). Typically, the best RSP scores are achieved in the first two taxonomy levels. The inner bar plot presents the number of cohorts in which miMic is deemed significant when commencing the Mann-Whitney test at each taxonomy level.
+
+3. **"fig3_scatter_sister_scc_rsp.py"**-
+   - Scatter plot of the sister's-labels SCC vs. the RSP(1) score. A significant positive correlation of 0.588 is observed between the SCCs of sister labels and the model's performance **(F)**.
+
+### Fig_4 - Consistency and robustness analysis of miMic
+1. **"fig4_plot_consistency_within_models.py"**-
+   - Within-study differential abundance consistency analysis across multiple tools. The percentage of total significant features is plotted against the number of tools that identified the feature as significant. Results are shown for the miMic model (pink) and the average of all state-of-the-art (SOTA) models (white). Refer to Supp. Mat. Fig. S3 for a detailed analysis of all 13 tools. The total number of significant features identified by each tool is provided in the legend. miMic demonstrates slightly higher consistency compared to the average of all SOTA models **(A)**.
+
+2. **"fig4_plotexpected_vs_observed_consistency_within_datasets.py"**-
+   - The percentage of significant species is plotted against the number of studies where each species was identified as significant, conducted on five inflammatory bowel disease (IBD) cohorts. Results for miMic are depicted in pink **(B)**, while those for the average state-of-the-art (SOTA) model are shown in white **(C)**. The expected results are presented in black (see Methods). Additionally, a parallel analysis on shuffled labels is provided for the ANCOM-BC2 model (green) within **(C)**. The models' performance exceeds that of the expected random model. However, certain tools, such as ANCOM-BC2, exhibit artificially consistent results, as indicated in the inner plot of **(C)**. For a comprehensive analysis of all 13 tools, refer to Supplementary Material Fig. S4.
+
+     - Note that in order to find the intersection, one should use <code style="background-color: lightgrey;">Additional evaluations tools/consistency_within_datasets.py</code>.
+    
+     - Note that in order to compute the expected simulations, one should use <code style="background-color: lightgrey;">Additional evaluations tools/consistency_within_datasets.py</code>.
+
+
 
     
