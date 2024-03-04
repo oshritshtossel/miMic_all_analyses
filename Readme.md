@@ -107,9 +107,27 @@ The analyses are presented according to the figures in the manuscript.
 2. **"fig4_plotexpected_vs_observed_consistency_within_datasets.py"**-
    - The percentage of significant species is plotted against the number of studies where each species was identified as significant, conducted on five inflammatory bowel disease (IBD) cohorts. Results for miMic are depicted in pink **(B)**, while those for the average state-of-the-art (SOTA) model are shown in white **(C)**. The expected results are presented in black (see Methods). Additionally, a parallel analysis on shuffled labels is provided for the ANCOM-BC2 model (green) within **(C)**. The models' performance exceeds that of the expected random model. However, certain tools, such as ANCOM-BC2, exhibit artificially consistent results, as indicated in the inner plot of **(C)**. For a comprehensive analysis of all 13 tools, refer to Supplementary Material Fig. S4.
 
-     - Note that in order to find the intersection, one should use <code style="background-color: lightgrey;">Additional evaluations tools/consistency_within_datasets.py</code>.
+   - Note that in order to find the intersection, one should use <code style="background-color: lightgrey;">Additional evaluations tools/consistency_within_datasets.py</code>.
     
-     - Note that in order to compute the expected simulations, one should use <code style="background-color: lightgrey;">Additional evaluations tools/consistency_within_datasets.py</code>.
+   - Note that in order to compute the expected simulations, one should use <code style="background-color: lightgrey;">Additional evaluations tools/expected_simulations.py</code>.
+
+3. **"fig4_generic_features_robustness.py"**-
+   - Sensitivity robustness assessment. The heatmap illustrates Spearman correlation coefficients (SCCs) between each generic dataset characteristic and the percentage of significant taxa identified by each tool per dataset. Positive correlations are depicted in red, while negative correlations are shown in blue. Stars indicate a significant correlation (p-value < 0.05). miMic demonstrates robustness across all tested generic features in 16S datasets. For parallel analyses conducted on 16S and whole-genome sequencing (WGS) cohorts, detailing the percentage of significant taxa identified by each tool per dataset and RSP score, refer to Supplementary Material Fig. S5.
+
+### Fig_5 - Differential abundance analysis results are visualized on a cladogram for the IBD cohort.
+   - This plot is created by the [miMic PyPi](https://pypi.org/project/mimic-da/).
+     
+   - Each color represents the sign of the Mann-Whitney score (blue for positive scores, red for negative scores, and grey for non-significant taxa). The node size corresponds to -log10(p-value) from the Mann-Whitney test in miMic. The node shape represents its origin of significance: spheres were identified by both miMic and the Mann-Whiteny test on leaves, circles were identified by miMic only, and squares were identified by only the Mann-Whitney test. The colors represent the taxonomic family of each node.
+
+### Fig_6 - miMic's plots - example on IBD cohort.
+   - These plots is created by the [miMic PyPi](https://pypi.org/project/mimic-da/).
+
+   - **A.** Bar plot illustrating the taxonomy levels in the miMic test vs. the number of significant findings in a real run (RP) shown in blue, and in a shuffled run (SP) shown in red. The highest bar plot represents the actual RP vs SP of the selected taxonomy level of miMic combined with the leaves test as explained in the Methods. Taxonomy levels used for the a priori nested ANOVA test are shaded in grey. The number of RPs significantly exceeds the number of SPs.
+
+   - **B.** Interaction between significant taxa found in miMic. Each taxon is colored according to its significant family color, similar to Fig. 5 above. Each node shape represents the taxon's order. An edge is drawn between two nodes if their Spearman correlation coefficient (SCC) is above 0.3 (user-adjustable) and its p-value < 0.05 (user-adjustable). The width of the edge corresponds to its SCC. A blue edge represents a positive relation, while a red edge represents a negative one.
+
+   - **C.** Analysis of significant positive and negative relations within taxonomic families. The y-axis displays significant families in the cohort (defined by a family that has at least 1 significant descendant), while the x-axis shows the count of positive relations within a family in blue or the count of negative relations within a family in red. Each family is colored according to its color in the interaction network in **(B)** and the cladogram of correlations in Fig. 5 above.
+
 
 
 
