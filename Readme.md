@@ -129,6 +129,16 @@ The analyses are presented according to the figures in the manuscript.
    - **C.** Analysis of significant positive and negative relations within taxonomic families. The y-axis displays significant families in the cohort (defined by a family that has at least 1 significant descendant), while the x-axis shows the count of positive relations within a family in blue or the count of negative relations within a family in red. Each family is colored according to its color in the interaction network in **(B)** and the cladogram of correlations in Fig. 5 above.
 
 
+## Cite us
+
+Shtossel, Oshrit, and Yoram Louzoun. "miMic-a novel multi-layer statistical test for microbiome disease." (2023).
+
+## Contact us
+
+[Oshrit Shtossel](oshritvig@gmail.com)
+
+
+
 
 
     
