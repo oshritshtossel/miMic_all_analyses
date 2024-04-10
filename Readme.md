@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/766421687.svg)](https://zenodo.org/doi/10.5281/zenodo.10952811)
+
 # miMic - overall analyses code 
 
 This code is attached to the paper "mi-Mic: a novel multi-layer statistical test for microbiota-disease associations".
