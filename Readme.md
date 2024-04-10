@@ -1,6 +1,6 @@
 # miMic - overall analyses code 
 
-This code is attached to the paper "miMic - a novel multi-layer statistical test for microbiome disease".
+This code is attached to the paper "mi-Mic: a novel multi-layer statistical test for microbiota-disease associations".
 **MiMic (Mann-Whitney iMage Microbiome)**, a novel approach for microbiome differential abundance analysis, tackles the key challenges of such statistical tests: 
 a large number of tests, sparsity, varying abundance scales, and taxonomic relationships. Mimic first converts microbial counts to cladogram of means. 
 It then applies an apriori tests on the upper levels of the cladogram to detect overall relationships. Finally, it performs a Mann Whitney test on paths 
