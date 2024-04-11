@@ -1,6 +1,8 @@
+[![DOI](https://zenodo.org/badge/766421687.svg)](https://zenodo.org/doi/10.5281/zenodo.10952811)
+
 # miMic - overall analyses code 
 
-This code is attached to the paper "miMic - a novel multi-layer statistical test for microbiome disease".
+This code is attached to the paper "mi-Mic: a novel multi-layer statistical test for microbiota-disease associations".
 **MiMic (Mann-Whitney iMage Microbiome)**, a novel approach for microbiome differential abundance analysis, tackles the key challenges of such statistical tests: 
 a large number of tests, sparsity, varying abundance scales, and taxonomic relationships. Mimic first converts microbial counts to cladogram of means. 
 It then applies an apriori tests on the upper levels of the cladogram to detect overall relationships. Finally, it performs a Mann Whitney test on paths 
@@ -127,6 +129,16 @@ The analyses are presented according to the figures in the manuscript.
    - **B.** Interaction between significant taxa found in miMic. Each taxon is colored according to its significant family color, similar to Fig. 5 above. Each node shape represents the taxon's order. An edge is drawn between two nodes if their Spearman correlation coefficient (SCC) is above 0.3 (user-adjustable) and its p-value < 0.05 (user-adjustable). The width of the edge corresponds to its SCC. A blue edge represents a positive relation, while a red edge represents a negative one.
 
    - **C.** Analysis of significant positive and negative relations within taxonomic families. The y-axis displays significant families in the cohort (defined by a family that has at least 1 significant descendant), while the x-axis shows the count of positive relations within a family in blue or the count of negative relations within a family in red. Each family is colored according to its color in the interaction network in **(B)** and the cladogram of correlations in Fig. 5 above.
+
+
+## Cite us
+
+Shtossel, Oshrit, and Yoram Louzoun. "miMic-a novel multi-layer statistical test for microbiome disease." (2023).
+
+## Contact us
+
+[Oshrit Shtossel](oshritvig@gmail.com)
+
 
 
 
